@@ -1,6 +1,6 @@
-# Data Visualisation Projects  
+# Data Visualisation Project
 
-Welcome to my data visualisation projects repository! Here, you'll find links to my interactive and visually engaging data visualisations created using Tableau and Vegalite.
+Welcome to my data visualisation projects repository! Here, you'll find links to my interactive and visually engaging data visualisations created using Tableau.
 
 ## Interactive Project
 

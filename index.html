@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherylyn Yong DV2</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center children elements horizontally */
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('https://images.unsplash.com/photo-1562060726-e47264af32bd?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbGF5c2lhfGVufDB8fDB8fHww'); 
+            background-attachment: fixed;
+        }
+
+        .title-container {
+            width: 100%; /* Full width */
+            max-width: 1350px; /* Maximum width of the title container */
+            background: rgba(255, 255, 255, 0.666); /* Slightly transparent white */
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(63, 63, 63, 0.2);
+            margin: 20px auto; /* Center the container and add some vertical spacing */
+            text-align: center; /* Center the text */
+        }
+
+        .title-container h2 {
+            font-size: 2em; /* Larger font size for the main title */
+            color: #2c3e50; /* A darker shade for better contrast */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+            margin-bottom: 10px; /* Space below the title */
+        }
+
+        .title-container p {
+            font-size: 1.1em; /* Slightly larger font size for the subtitle */
+            color: #34495e; /* A complementary dark color for readability */
+        }
+
+        .visualization-wrapper {
+            display: flex; /* Use flexbox for horizontal layout */
+            margin-bottom: 20px; /* Space between different visualizations */
+        }
+
+        .visualization-container {
+            min-height: 200px; /* Minimum height to ensure visibility */
+            max-height: 1000px; /* Maximum height to maintain layout */
+            background: rgba(255, 255, 255, 0.984); /* Slightly transparent white */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 15px; /* Space between graph and sidebar */
+        }
+
+        .sidebarleft, .sidebarright {
+            flex-basis: 30%; /* Adjust width as needed */
+            padding: 10px;
+            box-sizing: border-box;
+            background: rgba(246, 236, 250, 0.9); /* Light gray background with transparency */
+            border-radius: 8px;
+            min-height: 400px; /* Minimum height to ensure visibility */
+            max-height: 750px; /* Maximum height to maintain layout */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s; /* Animation for hover effect */
+        }
+
+        .sidebarleft {
+            margin-left: 15px; 
+        }
+
+        .sidebarright {
+            margin-right: 15px; 
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6; /* Improved line spacing for readability */
+            text-align: center; /* Justify text format */
+            color: #555; /* Darker text for better readability */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <div class="title-container" id="graphContainer">
+            <h2>Malaysia's Socio-Economic Landscape</h2> 
+            <p>This data visualization presents various <strong>socio-economic indicators</strong> across <strong>Malaysian states</strong> 
+                <br>and <strong>districts</strong>.
+                It offers a comprehensive overview of <strong>household income</strong>, <br><strong>poverty levels</strong>, 
+                the <strong>Gini index</strong> and <strong>expenditure patterns</strong>, highlighting <br>the 
+                <strong>economic disparities</strong> and <strong>trends</strong> within the country.</p>
+        </div>
+
+        <!-- Wrapper for each visualization and sidebar -->
+        <div class="visualization-wrapper">
+            <div class="visualization-container" id="proportional_map">
+            </div>
+            <div class="sidebarright">
+                <h2>Poverty Distribution Map Insights</h2>
+                <p>
+                    <strong>Sabah</strong> has the highest poverty level among Malaysian states, while <strong>Pulau Pinang</strong> 
+                    and <strong>Selangor</strong> have lower rates. This disparity arises from several economic factors: 
+                    <strong>Sabah</strong>, being more rural and less developed, struggles with limited access to education and 
+                    healthcare, which drives up poverty rates. 
+                    <br><br>
+                    In contrast, <strong>Pulau Pinang</strong> and <strong>Selangor</strong> benefit from better 
+                    infrastructure and higher economic activity, contributing to their lower poverty levels.
+                </p>
+                
+            </div>
+        </div>
+    
+        <div class="visualization-wrapper">
+            <div class="sidebarleft">
+                <h2>Total Median Income Insights</h2>
+                <p>
+                    <strong>Sarawak</strong> boasts the highest total median income at <strong>RM145,464</strong>, 
+                    while <strong>Perlis</strong> has the lowest at <strong>RM4,713</strong>. This disparity is largely due to 
+                    economic development: <strong>Sarawak's</strong> diverse economy, which includes oil, gas, agriculture, and 
+                    manufacturing, supports higher median incomes. 
+                    <br><br>
+                    In contrast, <strong>Perlis</strong>, the smallest state, relies on agriculture and has a limited industrial base, 
+                    which negatively impacts its income levels.
+                </p>
+            </div>
+            <div class="visualization-container" id="bar_chart">
+            </div>
+        </div>
+    
+        <div class="visualization-wrapper">
+            <div class="visualization-container" id="box_plot">
+            </div>
+            <div class="sidebarright">
+                <h2>Income Distribution Insights</h2>
+                <p><strong>Selangor</strong> leads Malaysia in mean income, reaching 
+                    <strong>RM9,410</strong>, while <strong>Kelantan</strong> trails with <strong>RM3,153</strong>. 
+                    Several states, including <strong>Sarawak</strong>, <strong>Sabah</strong>, <strong>Perak</strong>, 
+                    <strong>Pahang</strong>, <strong>Negeri Sembilan</strong>, <strong>Kelantan</strong>, and <strong>Kedah</strong>, 
+                    fall below the national average for mean income. 
+                    <br><br>
+                    Conversely, <strong>Johor</strong>, <strong>Melaka</strong>, <strong>Pulau Pinang</strong>, 
+                    <strong>Terengganu</strong>, and <strong>Labuan</strong> exhibit medium income levels. Overall, 
+                    <strong>Selangor</strong> and <strong>Putrajaya</strong> represent the highest income brackets.
+                </p>
+            </div>
+        </div>
+    
+        <div class="visualization-wrapper">
+            <div class="sidebarleft">
+                <h2>Gini Coefficient and Expenditure Insights</h2>
+                <p><strong>Pahang</strong> has the lowest Gini index and expenditure, showing equitable income distribution.</p>
+    
+                <p><strong>Kelantan</strong>, <strong>Sabah</strong>, <strong>Sarawak</strong>, <strong>Perak</strong>, <strong>Negeri Sembilan</strong>, <strong>Kedah</strong>, and <strong>Perlis</strong> have medium expenditure and Gini, indicating moderate inequality.</p>
+    
+                <p><strong>Terengganu</strong> and <strong>Selangor</strong> have higher expenditures with lower Gini indices, reflecting better income distribution.</p>
+    
+                <p>Although <strong>Putrajaya</strong> has the highest expenditure, its Gini index remains in the medium range, suggesting that higher spending does not always equate to lower inequality.</p>
+    
+            </div>
+            <div class="visualization-container" id="scatter_plot">
+            </div>
+        </div>
+    
+        <div class="visualization-wrapper">
+            <div class="visualization-container" id="line_chart">
+            </div>
+            <div class="sidebarright">
+                <h2>Income across States Over Years Insights</h2>
+                <p>The line chart illustrates Malaysia's <strong>mean income growth</strong> across states from 
+                    <strong>1976 to 2022</strong>. Federal territories like <strong>Kuala Lumpur</strong> 
+                    and <strong>Putrajaya</strong> consistently show <strong>higher incomes</strong> compared to other states, 
+                    with incomes above <strong>RM12,000</strong>. Growth was <strong>slow until 1990</strong>, accelerated after 
+                    <strong>2000</strong>, and became <strong>volatile after 2015</strong>, including a decline during the <strong>2020 
+                        COVID-19 pandemic</strong>. Most states' incomes range between <strong>RM4,000</strong> and 
+                        <strong>RM8,000</strong>, highlighting ongoing regional disparities.</p>
+    
+            </div>
+        </div>
+    
+        <div style="padding: 20px; border: 1px solid #cccccc; border-radius: 5px; background-color: #f9f9f9;">
+            <div style="text-align: center; color: #000000;">
+                <p style="font-size: 14px; margin: 5px 0;">
+                    <strong>Created and Designed by Cherylyn Yong</strong>
+                </p>
+                <p style="font-size: 14px; margin: 5px 0;">
+                    <strong>Data Source: Department of Statistics Malaysia (DOSM)</strong> <br>
+                    <a href="https://open.dosm.gov.my/data-catalogue/hies_district" target="_blank" style="color: #007bff; text-decoration: none;">
+                        https://open.dosm.gov.my/data-catalogue/hies_district
+                    </a> <br>
+                    <a href="https://open.dosm.gov.my/data-catalogue/hh_income_state" target="_blank" style="color: #007bff; text-decoration: none;">
+                        https://open.dosm.gov.my/data-catalogue/hh_income_state
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <script type="text/javascript">
+        // Spec URLs
+        var spec1 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/proportional_map.json";  
+        var spec2 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/bar_chart.json";
+        var spec3 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/box_plot.json";
+        var spec4 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/scatter_plot.json";
+        var spec5 = "https://raw.githubusercontent.com/cyonjy/FIT3179/main/dv2/js/line_chart.json";
+
+        // Function to render visualizations with filtering
+        function renderVisualizations(state) {
+            // Filter data for each spec and pass the selected state
+            var filteredSpec1 = spec1 + '?state=' + state;
+            var filteredSpec2 = spec2 + '?state=' + state;
+            var filteredSpec3 = spec3 + '?state=' + state;
+            var filteredSpec4 = spec4 + '?state=' + state;
+            var filteredSpec5 = spec5 + '?state=' + state;
+
+            // Render each visualization
+            vegaEmbed('#proportional_map', filteredSpec1).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
+
+            vegaEmbed('#bar_chart', filteredSpec2).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
+
+            vegaEmbed('#box_plot', filteredSpec3).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
+
+            vegaEmbed('#scatter_plot', filteredSpec4).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
+
+            vegaEmbed('#line_chart', filteredSpec5).then(function(result) {
+                // Visualization successfully rendered
+            }).catch(console.error);
+        }
+
+        // Initial render with all states
+        renderVisualizations('all');
+    </script>
+
+</body>
+</html>
